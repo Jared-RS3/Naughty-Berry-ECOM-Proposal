@@ -20,7 +20,6 @@ const proposalData = {
   email:        "contact@daybreaktechinnovations.com",
   website:      "daybreaktech.agency",
   location:     "Cape Town, South Africa",
-  depositPct:   50,
 };
 
 /* ---- the single source of every rand in this document ----- */
@@ -52,10 +51,6 @@ const monthlyChangeAllowance = 5;
 /* ---- derived ---------------------------------------------- */
 const sum   = (k) => optionLines[k].reduce((t, l) => t + l[2], 0);
 const total = { o1: sum("o1"), o2: sum("o2") };
-const deposit = {
-  o1: total.o1 * proposalData.depositPct / 100,
-  o2: total.o2 * proposalData.depositPct / 100,
-};
 /* comma grouping, per the house convention: R12,000 — not the en-ZA space */
 const money = (n) => "R" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 const yearOne = (k) => total[k] + retainers[k] * 12;
@@ -74,17 +69,11 @@ const fills = {
   "email":            proposalData.email,
   "website":          proposalData.website,
   "location":         proposalData.location,
-  "deposit-pct":      proposalData.depositPct + "%",
-  "balance-pct":      (100 - proposalData.depositPct) + "%",
   "product-count":    String(productAllowance),
   "change-count":     String(monthlyChangeAllowance),
 
   "o1-total":         money(total.o1),
   "o2-total":         money(total.o2),
-  "o1-deposit":       money(deposit.o1),
-  "o2-deposit":       money(deposit.o2),
-  "o1-balance":       money(total.o1 - deposit.o1),
-  "o2-balance":       money(total.o2 - deposit.o2),
   "o1-retainer":      money(retainers.o1),
   "o2-retainer":      money(retainers.o2),
   "o1-retainer-year": money(retainers.o1 * 12),
