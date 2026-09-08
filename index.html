@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Naughty Berry · Sweet Range E-Commerce — Daybreak Proposal</title>
+<meta name="description" content="Daybreak proposal for Naughty Berry's sweets and candy range online: two routes to selling with Shopify, Yoco, The Courier Guy and Mailchimp, alongside the existing React website.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23faddea'/><path d='M16 27C9.5 21.5 6.5 16.8 6.5 12.9 6.5 9 10.6 6.2 16 6.2s9.5 2.8 9.5 6.7c0 3.9-3 8.6-9.5 14.1Z' fill='%23d5356d'/><ellipse cx='16' cy='5.5' rx='2' ry='3.4' fill='%234a9146'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─────────────  CHROME  ───────────── -->
+<header class="topbar">
+  <span class="tb-brand">DAYBREAK<i></i></span>
+  <div class="tb-centre">
+    <span class="tb-title">Cover</span>
+    <span class="tb-count">01 / 12</span>
+  </div>
+  <div class="tb-actions">
+    <button class="tb-btn tb-prev" type="button" aria-label="Previous section">&uarr;</button>
+    <button class="tb-btn tb-next" type="button" aria-label="Next section">&darr;</button>
+    <button class="tb-btn tb-print" type="button" aria-label="Print or save as PDF">
+      <span class="tb-print-txt">Print / PDF</span><span class="tb-print-ico">&#8615;</span>
+    </button>
+  </div>
+</header>
+<div class="progress"></div>
+<nav class="sidenav" aria-label="Section index"></nav>
+
+<main>
+
+<!-- ─────────────  01 · COVER  ───────────── -->
+<article class="proposal-page page-light cover" id="page-1" data-title="Cover">
+  <div class="cover-glow" aria-hidden="true"></div>
+  <div class="editorial-rock" aria-hidden="true"></div>
+
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner cover-inner">
+    <div>
+      <div class="nb-lockup">
+        <img class="nb-logo" src="Screenshot 2026-09-08 at 14.00.35.png" alt="Naughty Berry">
+        <span class="nb-rule"></span>
+        <span class="nb-since">Fresh<br>Strawberries</span>
+      </div>
+
+      <div class="cover-ref">
+        <span>PREPARED FOR</span><b data-fill="client-name">Naughty Berry</b>
+      </div>
+
+      <span class="nb-chip"><i></i>THE <b data-fill="range-upper">SWEET RANGE</b> ONLINE</span>
+
+      <h1 class="cover-title">Naughty Berry<br><em>E-Commerce</em><br>Integration</h1>
+      <p class="lead">An online shop for the <b data-fill="range">sweet range</b>, by one of
+        two routes: a linked Shopify store, or a custom storefront built into the existing
+        React website. Both run on Shopify. Both keep the current website in place.</p>
+
+      <div class="nb-swatches" aria-hidden="true">
+        <i class="sw p"></i><i class="sw h"></i><i class="sw c"></i>
+        <span>BRAND-MATCHED STOREFRONT</span>
+      </div>
+
+      <div class="prepared">
+        <div>
+          <span>PREPARED BY</span>
+          <p><b data-fill="company">Daybreak</b><br><span data-fill="location">Cape Town, South Africa</span></p>
+        </div>
+        <div>
+          <span>DATE</span>
+          <p data-fill="proposal-date">8 September 2026</p>
+        </div>
+        <div>
+          <span>VALID FOR</span>
+          <p data-fill="validity">14 days</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="device-wrap" aria-hidden="true">
+      <div class="phone-shadow"></div>
+      <div class="device-frame">
+        <div class="device-screen nb">
+          <div class="nb-bar"><img class="nb-word-sm" src="Screenshot 2026-09-08 at 14.00.35.png" alt="Naughty Berry"><i>CART · 2</i></div>
+          <div class="nb-body">
+            <div class="nb-hero"></div>
+            <div class="nb-grid">
+              <div class="nb-card"><div class="nb-thumb"></div><div class="nb-line"></div><div class="nb-line s"></div></div>
+              <div class="nb-card"><div class="nb-thumb"></div><div class="nb-line"></div><div class="nb-line s"></div></div>
+              <div class="nb-card"><div class="nb-thumb"></div><div class="nb-line"></div><div class="nb-line s"></div></div>
+              <div class="nb-card"><div class="nb-thumb"></div><div class="nb-line"></div><div class="nb-line s"></div></div>
+            </div>
+            <div class="nb-cta">CHECKOUT</div>
+          </div>
+          <div class="nb-pay">SECURED BY <i>YOCO</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">01 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  02 · THE BRIEF  ───────────── -->
+<article class="proposal-page page-light" id="page-2" data-title="The Brief" data-num="01">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">01</span>
+    <p class="eyebrow">PROJECT OVERVIEW</p>
+    <h2 class="title">The Brief</h2>
+    <span class="rule"></span>
+
+    <div class="vision-grid">
+      <div class="prose">
+        <p class="lead">Naughty Berry's website is a custom React application built around the
+          brand's own identity. It works. The next phase is not a rebuild — it is adding the
+          ability to sell the <b data-fill="range-long">sweets and candy range</b> online.</p>
+        <p class="measure">Two routes are set out. Both use Shopify as the commerce engine
+          behind the scenes, and both preserve the existing website. They differ only in where
+          the customer does the shopping.</p>
+        <p class="measure">The pop-up, market and events side of the business is unchanged by
+          this work. The shop sells the packaged <b data-fill="range">sweet range</b> — a
+          shelf-stable product that ships far more easily than anything made fresh to order.</p>
+
+        <div class="callout emphasis">
+          <span class="co-mark">&rarr;</span>
+          <p>Every amount shown under <b>Daybreak Investment</b> is a professional setup and
+            development fee. Shopify subscriptions, payment-processing fees, courier charges
+            and email-platform subscriptions are third-party operational costs, payable
+            directly by Naughty Berry. Section 08 sets them out in full.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="h-min">WHAT THE CUSTOMER WILL BE ABLE TO DO</p>
+        <ol class="numlist">
+          <li><span>01</span>Browse the <b data-fill="range">sweet range</b></li>
+          <li><span>02</span>Select flavours, sizes and quantities</li>
+          <li><span>03</span>Place an order online</li>
+          <li><span>04</span>Pay securely through Yoco</li>
+          <li><span>05</span>Choose a delivery option</li>
+          <li><span>06</span>Receive order confirmation and tracking</li>
+          <li><span>07</span>Subscribe to the Naughty Berry mailing list</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">02 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  03 · TWO ROUTES  ───────────── -->
+<article class="proposal-page page-dark" id="page-3" data-title="Two Routes" data-num="02">
+  <div class="dark-glow" aria-hidden="true"></div>
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">02</span>
+    <p class="eyebrow gold">THE DECISION</p>
+    <h2 class="title">Two Routes to<br>the Same Engine</h2>
+    <span class="rule"></span>
+
+    <p class="lead" style="max-width:64ch">Shopify sits behind both options. Products, prices,
+      variants, stock and orders are managed in one place either way. The only question is
+      whether customers shop <em style="font-style:normal;color:var(--warm)">on a connected
+      Shopify store</em> or <em style="font-style:normal;color:var(--warm)">inside the existing
+      React website</em>.</p>
+
+    <div class="two-scope" style="margin-top:38px">
+      <div>
+        <p class="h-min">OPTION ONE · LINKED SHOPIFY STORE</p>
+        <ul class="ticklist dim compact">
+          <li>A dedicated Shopify store, styled to Naughty Berry's pink, magenta and chocolate</li>
+          <li>"Order Now" buttons on the current site hand off to the store</li>
+          <li>Fastest, most cost-effective route, with no custom code to maintain</li>
+        </ul>
+      </div>
+      <div>
+        <p class="h-min">OPTION TWO · CUSTOM REACT INTEGRATION</p>
+        <ul class="ticklist dim compact">
+          <li>The shop is built into the existing React website</li>
+          <li>Customers browse and build a cart without leaving the site</li>
+          <li>They enter Shopify only at secure checkout — one seamless brand</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="h-min" style="margin-top:44px">HOW DELIVERY RUNS — THE SAME FOUR STAGES EITHER WAY</p>
+    <ol class="vtimeline">
+      <li>
+        <span class="vt-num">01</span>
+        <h4>Setup and access</h4>
+        <p>Shopify, Yoco, The Courier Guy and Mailchimp accounts created or connected. Product
+          information, weights and dimensions loaded.</p>
+      </li>
+      <li>
+        <span class="vt-num">02</span>
+        <h4>Build and configure</h4>
+        <p>Catalogue, cart and checkout configured — or, under Option Two, the custom React
+          storefront built against the Shopify Storefront API.</p>
+      </li>
+      <li>
+        <span class="vt-num">03</span>
+        <h4>Payments and delivery</h4>
+        <p>Yoco connected and tested end to end. The Courier Guy plugin installed, shipping
+          zones and the waybill workflow configured.</p>
+      </li>
+      <li>
+        <span class="vt-num">04</span>
+        <h4>Test, train, launch</h4>
+        <p>The complete order journey tested on mobile and desktop, order-management training
+          delivered, then production launch.</p>
+      </li>
+    </ol>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">03 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  04 · OPTION ONE  ───────────── -->
+<article class="proposal-page page-light" id="page-4" data-title="Option One" data-num="03">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">03</span>
+    <p class="eyebrow">OPTION ONE</p>
+    <h2 class="title">Linked<br>Shopify Store</h2>
+    <span class="rule"></span>
+
+    <p class="lead">A dedicated Shopify store, styled to Naughty Berry's branding, colours and
+      typography. The existing React website stays exactly as it is; its "Order Now" buttons
+      send customers to the store through a dedicated page or branded subdomain.</p>
+
+    <div class="split-scope" style="margin-top:34px">
+      <div class="prose">
+        <p class="h-min">01 · SHOPIFY STORE SETUP <span data-fill="o1-shopify" class="money">R6,000</span></p>
+        <ul class="ticklist compact">
+          <li>Store creation, branded catalogue, and up to <b data-fill="product-count">10</b>
+            initial products with variants, pricing, images and stock</li>
+          <li>Cart and Shopify checkout, capturing customer contact and delivery details</li>
+          <li>Order-confirmation emails, optimised for mobile and desktop</li>
+          <li>The Courier Guy plugin, shipping zones and the waybill workflow</li>
+          <li>"Order Now" connection from the existing Naughty Berry website</li>
+          <li>Full order-journey testing, order-management training and production launch</li>
+        </ul>
+
+        <p class="h-min" style="margin-top:28px">02 · YOCO PAYMENT INTEGRATION <span data-fill="o1-yoco" class="money">R2,000</span></p>
+        <p class="measure">Naughty Berry's merchant account connected as the store's online
+          payment provider, with successful, failed and cancelled payments handled, test
+          transactions run, and production launch testing.</p>
+
+        <p class="h-min" style="margin-top:28px">03 · MAILCHIMP INTEGRATION <span data-fill="o1-mailchimp" class="money">R4,000</span></p>
+        <p class="measure">Audience, consent and signup workflow connected to the website and
+          store, a branded newsletter template and welcome email, and end-to-end subscriber
+          testing.</p>
+
+        <div class="callout">
+          <span class="co-mark">&rarr;</span>
+          <p>Both experiences carry the same branding, but the shop is a connected destination
+            rather than part of the current website — and an attentive customer will notice
+            the hand-off.</p>
+        </div>
+      </div>
+
+      <div class="stack-gap">
+        <div class="price-card">
+          <span class="pc-head">ONCE-OFF INVESTMENT</span>
+          <span class="pc-fig" data-fill="o1-total">R12,000</span>
+          <p class="pc-note">Shopify store setup, Yoco payment integration and Mailchimp
+            integration.</p>
+        </div>
+        <div class="sr-figure">
+          <span class="srf-fig" data-fill="o1-retainer">R2,000</span>
+          <span class="srf-unit">PER MONTH · RETAINER</span>
+        </div>
+        <div>
+          <p class="h-min">ESTIMATED IMPLEMENTATION</p>
+          <p class="prose"><b data-fill="o1-time">2–3 weeks</b> from receipt of the deposit,
+            platform access and all required product information.</p>
+        </div>
+        <div>
+          <p class="h-min">BEST SUITED FOR</p>
+          <ul class="ticklist compact">
+            <li>Trading online quickly, at a controlled initial investment</li>
+            <li>A reliable platform with no custom code to maintain</li>
+            <li>Managing products and orders without technical knowledge</li>
+            <li>Proving demand before investing further</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ti-stack" data-stack="o1" style="margin-top:40px"></div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">04 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  05 · OPTION TWO  ───────────── -->
+<article class="proposal-page page-light" id="page-5" data-title="Option Two" data-num="04">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">04</span>
+    <p class="eyebrow">OPTION TWO</p>
+    <h2 class="title">Custom Storefront,<br>Shopify Behind It</h2>
+    <span class="rule"></span>
+
+    <p class="lead">The shop is built into the existing React website. Shopify manages
+      products, stock and orders; customers browse and build a cart without leaving the site,
+      and move into Shopify's secure checkout only when they are ready to pay. The difference
+      is <b data-fill="delta">R6,000</b> once off and <b data-fill="delta-retainer">R1,500</b>
+      per month.</p>
+
+    <div class="split-scope" style="margin-top:34px">
+      <div class="prose">
+        <p class="h-min">01 · CUSTOM REACT STOREFRONT AND SHOPIFY INTEGRATION <span data-fill="o2-storefront" class="money">R12,000</span></p>
+        <ul class="ticklist compact">
+          <li>Shopify backend and Storefront API configured, securely connected to the React website</li>
+          <li>Custom shop page, product cards, product detail, variant and quantity selection</li>
+          <li>Custom cart — add, update, remove — that persists between visits</li>
+          <li>Live pricing, stock and availability drawn from Shopify</li>
+          <li>Up to <b data-fill="product-count">10</b> initial products, responsive on mobile and desktop</li>
+          <li>The Courier Guy plugin, shipping rates and the fulfilment workflow</li>
+          <li>Error, loading and unavailable-product states</li>
+          <li>Checkout hand-off, deployment to the existing website, training and launch</li>
+        </ul>
+
+        <p class="h-min" style="margin-top:28px">02 · YOCO PAYMENT INTEGRATION <span data-fill="o2-yoco" class="money">R2,000</span></p>
+        <p class="measure">As Option One, connected through Shopify: merchant account, secure
+          payment configuration, payment-state handling, test transactions and launch testing.</p>
+
+        <p class="h-min" style="margin-top:28px">03 · MAILCHIMP INTEGRATION <span data-fill="o2-mailchimp" class="money">R4,000</span></p>
+        <p class="measure">As Option One, connected across the React website and Shopify:
+          audience and consent setup, signup workflow, branded template and welcome email, and
+          end-to-end subscriber testing.</p>
+      </div>
+
+      <div class="stack-gap">
+        <div class="price-card solid">
+          <span class="pc-head">ONCE-OFF INVESTMENT</span>
+          <span class="pc-fig" data-fill="o2-total">R18,000</span>
+          <p class="pc-note">Custom React and Shopify integration, Yoco payment integration
+            and Mailchimp integration.</p>
+        </div>
+        <div class="sr-figure">
+          <span class="srf-fig" data-fill="o2-retainer">R3,500</span>
+          <span class="srf-unit">PER MONTH · RETAINER</span>
+        </div>
+        <div>
+          <p class="h-min">ESTIMATED IMPLEMENTATION</p>
+          <p class="prose"><b data-fill="o2-time">3–4 weeks</b> from receipt of the deposit,
+            platform access and all required product information.</p>
+        </div>
+        <div>
+          <p class="h-min">BEST SUITED FOR</p>
+          <ul class="ticklist compact">
+            <li>One consistent customer-facing website</li>
+            <li>A premium storefront rather than a generic store template</li>
+            <li>A smoother journey from browsing to checkout</li>
+            <li>A foundation future functionality can be built on</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="h-min" style="margin-top:40px">WHY IT COSTS MORE</p>
+    <div class="why-grid">
+      <div class="why-point">
+        <h4>Custom build</h4>
+        <p>React e-commerce components, cart functionality, and cart-state management and
+          persistence — none of which exist in a themed store.</p>
+      </div>
+      <div class="why-point">
+        <h4>Live data connection</h4>
+        <p>Product and inventory connected directly to Shopify through the Storefront API,
+          with the data handling and error states that requires.</p>
+      </div>
+      <div class="why-point">
+        <h4>Continuing responsibility</h4>
+        <p>Broader responsive, browser and checkout testing, and ongoing compatibility between
+          the React website and Shopify after launch.</p>
+      </div>
+    </div>
+
+    <div class="ti-stack" data-stack="o2" style="margin-top:40px"></div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">05 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  06 · INVESTMENT  ───────────── -->
+<article class="proposal-page page-dark" id="page-6" data-title="Investment" data-num="05">
+  <div class="dark-glow" aria-hidden="true"></div>
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">05</span>
+    <p class="eyebrow gold">COMMERCIAL SUMMARY</p>
+    <h2 class="title">The Investment</h2>
+    <span class="rule"></span>
+
+    <p class="lead" style="max-width:64ch">Every figure below is a Daybreak professional fee.
+      Third-party subscriptions, transaction fees and courier charges are separate, and are
+      set out in section 08.</p>
+
+    <p class="h-min" style="margin-top:38px">OPTION ONE · LINKED SHOPIFY STORE</p>
+    <div class="cost-list breakdown" data-lines="o1"></div>
+
+    <p class="h-min" style="margin-top:44px">OPTION TWO · CUSTOM REACT AND SHOPIFY INTEGRATION</p>
+    <div class="cost-list breakdown" data-lines="o2"></div>
+
+    <div class="ti-price-row" style="margin-top:44px">
+      <div class="ti-price">
+        <span class="tip-label">OPTION ONE</span>
+        <span class="tip-fig" data-fill="o1-total">R12,000</span>
+        <p class="tip-note">once off plus <b data-fill="o1-retainer">R2,000</b> per month.</p>
+      </div>
+      <div class="ti-price alt">
+        <span class="tip-label">OPTION TWO</span>
+        <span class="tip-fig" data-fill="o2-total">R18,000</span>
+        <p class="tip-note">once off plus <b data-fill="o2-retainer">R3,500</b> per month.</p>
+      </div>
+    </div>
+
+    <p class="fineprint" style="margin-top:24px">The retainer is a monthly agreement and may be
+      reviewed at any point.</p>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">06 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  07 · COMPARISON  ───────────── -->
+<article class="proposal-page page-light" id="page-7" data-title="Options Compared" data-num="06">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">06</span>
+    <p class="eyebrow">SIDE BY SIDE</p>
+    <h2 class="title">Options Compared</h2>
+    <span class="rule"></span>
+
+    <p class="lead measure">Both routes deliver the same commercial machinery. The table shows
+      only where they differ.</p>
+
+    <p class="h-min" style="margin-top:30px">INCLUDED IN BOTH OPTIONS</p>
+    <ul class="cols tight">
+      <li>The existing React website retained</li>
+      <li>Shopify product, stock and order management</li>
+      <li>Yoco online payments</li>
+      <li>The Courier Guy delivery and waybills</li>
+      <li>Mailchimp signup and audience</li>
+      <li>Up to <b data-fill="product-count">10</b> initial products</li>
+    </ul>
+
+    <div class="table-wrap" style="margin-top:32px">
+      <table class="cmp">
+        <thead>
+          <tr><th scope="col">Where they differ</th><th scope="col">Option One · Linked Store</th><th scope="col">Option Two · Custom Integration</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Where customers shop</td><td>On a connected Shopify store</td><td>Inside the existing React website</td></tr>
+          <tr><td>Product and cart interface</td><td>Shopify theme</td><td>Custom React components</td></tr>
+          <tr><td>Role of Shopify</td><td>Storefront and backend</td><td>Backend, entered at checkout</td></tr>
+          <tr><td>Customer journey</td><td>Handed off to the store</td><td>One continuous brand</td></tr>
+          <tr class="figure"><td>Once-off investment</td><td data-fill="o1-total">R12,000</td><td data-fill="o2-total">R18,000</td></tr>
+          <tr class="figure"><td>Monthly retainer</td><td data-fill="o1-retainer">R2,000</td><td data-fill="o2-retainer">R3,500</td></tr>
+          <tr class="figure"><td>Estimated delivery</td><td data-fill="o1-time">2–3 weeks</td><td data-fill="o2-time">3–4 weeks</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout emphasis" style="margin-top:34px">
+      <span class="co-mark">&rarr;</span>
+      <p><b>How to choose.</b> Take Option One if the priority is trading soon and proving
+        demand at a controlled cost. Take Option Two if the shop is a central part of the
+        brand and the long-term customer experience — the Shopify catalogue, Yoco
+        configuration and Mailchimp audience built under Option One carry across if the
+        decision is made later.</p>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">07 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  08 · RETAINER  ───────────── -->
+<article class="proposal-page page-light" id="page-8" data-title="Monthly Retainer" data-num="07">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">07</span>
+    <p class="eyebrow">AFTER LAUNCH</p>
+    <h2 class="title">Website and<br>E-Commerce Retainer</h2>
+    <span class="rule"></span>
+
+    <p class="lead measure">An online store is not a delivered file; it is a system that has to
+      keep working every day. The retainer covers the ongoing operation of that system, and
+      begins the month after production launch.</p>
+
+    <p class="h-min" style="margin-top:32px">EVERY MONTH, UNDER BOTH OPTIONS</p>
+    <ul class="cols tight">
+      <li>Website and store maintenance, software and configuration checks</li>
+      <li>Shopify, Yoco, Courier Guy and Mailchimp integration monitoring</li>
+      <li>Monthly checkout and order-flow test</li>
+      <li>Basic security monitoring</li>
+      <li>Troubleshooting and bug fixes</li>
+      <li>Up to <b data-fill="change-count">5</b> small website, store or content changes</li>
+      <li>Priority technical support</li>
+    </ul>
+
+    <div class="two-scope" style="margin-top:34px">
+      <div class="price-card">
+        <span class="pc-head">OPTION ONE · PER MONTH</span>
+        <span class="pc-fig" data-fill="o1-retainer">R2,000</span>
+        <p class="pc-note">Everything listed above, across the Shopify store and the existing
+          website.</p>
+      </div>
+      <div class="price-card solid">
+        <span class="pc-head">OPTION TWO · PER MONTH</span>
+        <span class="pc-fig" data-fill="o2-retainer">R3,500</span>
+        <p class="pc-note">Everything above, plus React storefront maintenance, Storefront API
+          monitoring, product, cart and inventory-sync checks, dependency updates and a monthly
+          systems health check — the custom storefront and Shopify must keep working together.</p>
+      </div>
+    </div>
+
+    <p class="fineprint" style="margin-top:24px">What the retainer does not cover is listed
+      under Scope Conditions in section 09.</p>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">08 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  09 · THIRD-PARTY COSTS  ───────────── -->
+<article class="proposal-page page-light" id="page-9" data-title="Third-Party Costs" data-num="08">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">08</span>
+    <p class="eyebrow">PAYABLE DIRECTLY BY NAUGHTY BERRY</p>
+    <h2 class="title">Third-Party<br>Operational Costs</h2>
+    <span class="rule"></span>
+
+    <p class="lead measure">These are not included in Daybreak's fees. Final amounts depend on
+      the plans selected, sales volume, transaction value, delivery location and provider
+      pricing at the time of activation, so they are described here rather than quoted.</p>
+
+    <div class="terms-cols" style="margin-top:34px">
+      <div>
+        <div class="term">
+          <h5>SHOPIFY</h5>
+          <p>A paid subscription is required under both options. The plan depends on whether
+            delivery rates are configured manually or drawn live from The Courier Guy at
+            checkout — an entry-level plan supports fixed or manual rates, and the plugin can
+            still produce waybills from Shopify orders.</p>
+        </div>
+        <div class="term">
+          <h5>SHOPIFY THIRD-PARTY PAYMENT FEE</h5>
+          <p>Shopify may charge an additional transaction fee when an external payment provider
+            such as Yoco is used. The percentage depends on the subscription selected and must
+            be confirmed when the store is created.</p>
+        </div>
+        <div class="term">
+          <h5>YOCO</h5>
+          <p>Yoco charges a processing fee on successful online payments, at a percentage set
+            by Naughty Berry's own account. Daybreak's <b data-fill="o1-yoco">R2,000</b> fee
+            covers setup and integration only.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="term">
+          <h5>THE COURIER GUY</h5>
+          <p>The plugin is free; delivery is not. Charges depend on the service, distance,
+            parcel weight, dimensions and speed. Naughty Berry may pass the charge to the
+            customer at checkout or absorb part of it as a sales strategy, and the national
+            one-rate schedule applies unless account-specific rates are approved.</p>
+        </div>
+        <div class="term">
+          <h5>MAILCHIMP</h5>
+          <p>Free at a small subscriber volume. A paid plan becomes necessary as the database
+            grows, or if more automation, segmentation or sending capacity is required.</p>
+        </div>
+        <div class="term">
+          <h5>DOMAIN AND HOSTING</h5>
+          <p>Existing hosting and domain stay in place. Option One may use a branded subdomain
+            such as shop.naughtyberry.co.za, which normally runs on the existing domain without
+            buying another. Anything additional is approved before implementation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout emphasis" style="margin-top:12px">
+      <span class="co-mark">&rarr;</span>
+      <p>According to The Courier Guy, live carrier-calculated shipping rates may require a
+        qualifying annually billed Shopify Grow plan. Confirm this before implementation — it
+        affects both the plan chosen and how delivery is priced at checkout.</p>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">09 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  10 · SCOPE CONDITIONS  ───────────── -->
+<article class="proposal-page page-dark" id="page-10" data-title="Scope Conditions" data-num="09">
+  <div class="dark-glow" aria-hidden="true"></div>
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">09</span>
+    <p class="eyebrow gold">WHAT THIS PROPOSAL DOES NOT COVER</p>
+    <h2 class="title">Scope Conditions</h2>
+    <span class="rule"></span>
+
+    <p class="lead" style="max-width:64ch">This page is here so that nothing is assumed. The
+      proposal covers up to <b data-fill="product-count">10</b> initial products; more can be
+      loaded at an agreed per-product fee, or within the monthly change allowance.</p>
+
+    <div class="two-scope" style="margin-top:38px">
+      <div>
+        <p class="h-min">THE PROPOSAL ASSUMES</p>
+        <ul class="ticklist dim compact">
+          <li>Product content is supplied complete and usable</li>
+          <li>No subscription or recurring-order system is required</li>
+          <li>No wholesale or multi-vendor functionality is required</li>
+          <li>No loyalty programme, accounting or point-of-sale integration is required</li>
+          <li>The chosen Shopify, Yoco and Courier Guy plans support the functionality described</li>
+          <li>The existing website does not need a major redesign</li>
+        </ul>
+      </div>
+      <div>
+        <p class="h-min">NOT INCLUDED, IN THE FEE OR THE RETAINER</p>
+        <ul class="ticklist dim compact">
+          <li>Product photography and copywriting</li>
+          <li>Daily order processing, packing and dispatch</li>
+          <li>Customer-service management</li>
+          <li>Bulk product loading beyond the initial <b data-fill="product-count">10</b></li>
+          <li>Courier charges, payment fees and platform subscriptions</li>
+          <li>Major redesign, new functionality or undocumented custom development</li>
+          <li>Work requiring restricted third-party access</li>
+        </ul>
+        <p class="fineprint" style="margin-top:18px">Courier functionality remains subject to
+          The Courier Guy's plugin capabilities, account approval and supported Shopify
+          features. Anything outside the documented scope is assessed and quoted separately.</p>
+      </div>
+    </div>
+
+    <div class="callout emphasis" style="margin-top:36px">
+      <span class="co-mark">&rarr;</span>
+      <p>The packaged <b data-fill="range">sweet range</b> is the right product to start with —
+        shelf-stable, and it ships well. Chocolate-coated lines are still heat-sensitive, so
+        confirm packaging and delivery timeframes with The Courier Guy before the deposit is
+        paid, and decide whether summer despatch needs insulated packaging, a hot-weather
+        cut-off or a regional limit. Fresh strawberry products are outside this scope.</p>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">10 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  11 · RESPONSIBILITIES AND TERMS  ───────────── -->
+<article class="proposal-page page-light" id="page-11" data-title="Terms & Acceptance" data-num="10">
+  <header class="page-head">
+    <span class="page-brand">DAYBREAK</span
+    ><span class="page-tag">PROPOSAL<i></i><b data-fill="reference">DB-NB-002 · V1</b></span>
+  </header>
+
+  <div class="page-inner">
+    <span class="sec-num">10</span>
+    <p class="eyebrow">WHAT WE NEED, AND HOW IT IS PAID</p>
+    <h2 class="title">Terms and<br>Acceptance</h2>
+    <span class="rule"></span>
+
+    <div class="resp-grid">
+      <div>
+        <p class="h-min">NAUGHTY BERRY WILL PROVIDE</p>
+        <ul class="cols tight" style="columns:1">
+          <li>Shopify and Yoco account details</li>
+          <li>The Courier Guy account code and credentials</li>
+          <li>Mailchimp access, or approval to create an account</li>
+          <li>Final product names, descriptions, prices and images</li>
+          <li>Product variants and stock quantities</li>
+          <li>Product weights and dimensions</li>
+          <li>Collection and business addresses, and delivery rules</li>
+          <li>Refund, cancellation and privacy policies</li>
+          <li>Timely feedback and approvals</li>
+        </ul>
+        <p class="fineprint" style="margin-top:16px">Products cannot be configured accurately
+          without final weights and dimensions, because these affect delivery pricing.</p>
+      </div>
+
+      <div>
+        <div class="term feature">
+          <h5>PAYMENT</h5>
+          <p>A <b data-fill="deposit-pct">50%</b> deposit is required before work begins —
+            <b data-fill="o1-deposit">R6,000</b> under Option One or
+            <b data-fill="o2-deposit">R9,000</b> under Option Two. The remaining
+            <b data-fill="balance-pct">50%</b> is payable once the agreed system has been
+            completed and approved, before production launch.</p>
+        </div>
+        <div class="term feature">
+          <h5>TIMELINES</h5>
+          <p>Project timelines begin once the deposit, account access and complete product
+            information have been received — not from the date of acceptance.</p>
+        </div>
+        <div class="term feature">
+          <h5>VALIDITY</h5>
+          <p>This proposal is valid for <b data-fill="validity">14 days</b> from
+            <b data-fill="proposal-date">8 September 2026</b>. Third-party pricing is outside
+            Daybreak's control and may change.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="h-min" style="margin-top:38px">ACCEPTANCE</p>
+    <ol class="steps">
+      <li>
+        <div><h4>Select an option</h4>
+          <p>Confirm Option One or Option Two in writing, together with the Shopify plan and
+            whether live courier rates are required at checkout.</p></div>
+      </li>
+      <li>
+        <div><h4>Pay the deposit</h4>
+          <p><b data-fill="deposit-pct">50%</b> of the once-off investment. The retainer begins
+            the month after production launch.</p></div>
+      </li>
+      <li>
+        <div><h4>Hand over access and product information</h4>
+          <p>Accounts, credentials and the complete product set. The delivery estimate runs
+            from this point.</p></div>
+      </li>
+    </ol>
+
+    <div class="sign-grid three">
+      <div class="sign-block"><div class="sb-line"></div><span class="sb-label">SIGNED FOR NAUGHTY BERRY</span></div>
+      <div class="sign-block"><div class="sb-line"></div><span class="sb-label">SIGNED FOR DAYBREAK</span></div>
+      <div class="sign-block"><div class="sb-line"></div><span class="sb-label">DATE</span></div>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>NAUGHTY BERRY · E-COMMERCE</span><span class="page-num">11 / 12</span>
+  </footer>
+</article>
+
+<!-- ─────────────  12 · CLOSING  ───────────── -->
+<article class="proposal-page page-split" id="page-12" data-title="Closing">
+  <div class="split-dark">
+    <div class="split-glow" aria-hidden="true"></div>
+    <p class="eyebrow gold" style="position:relative;z-index:2">DAYBREAK</p>
+    <h2 class="contact-title" style="position:relative;z-index:2">Let's get<br>Naughty Berry<br>selling.</h2>
+    <ul class="contact-list">
+      <li><span>EMAIL</span><a data-fill="email" href="mailto:contact@daybreaktechinnovations.com">contact@daybreaktechinnovations.com</a></li>
+      <li><span>WEB</span><a data-fill="website" href="https://daybreaktech.agency">daybreaktech.agency</a></li>
+      <li><span>LOCATION</span><p data-fill="location">Cape Town, South Africa</p></li>
+      <li><span>REFERENCE</span><p data-fill="reference">DB-NB-002 · V1</p></li>
+    </ul>
+    <div class="split-foot"><span data-fill="proposal-date">8 September 2026</span></div>
+  </div>
+
+  <div class="split-light">
+    <div class="nb-lockup">
+      <img class="nb-logo" src="Screenshot 2026-09-08 at 14.00.35.png" alt="Naughty Berry">
+    </div>
+    <p class="eyebrow">NEXT STEP</p>
+    <h3 class="title sub">Confirm the option,<br>and we begin.</h3>
+    <span class="rule"></span>
+    <p class="prose measure">Option One puts the <b data-fill="range">sweet range</b> online
+      quickly and affordably. Option Two builds the shop into the website itself and treats
+      e-commerce as part of the brand rather than a destination customers are sent to. Either
+      route can be started this month.</p>
+
+    <div class="ms-stage" style="border-top:0;padding-top:24px">
+      <div><span class="ms-name">Option One · once off</span><span class="ms-calc">plus <b data-fill="o1-retainer">R2,000</b> per month</span></div>
+      <span class="ms-fig" data-fill="o1-total">R12,000</span>
+    </div>
+    <div class="ms-stage">
+      <div><span class="ms-name">Option Two · once off</span><span class="ms-calc">plus <b data-fill="o2-retainer">R3,500</b> per month</span></div>
+      <span class="ms-fig" data-fill="o2-total">R18,000</span>
+    </div>
+
+    <p class="fineprint" style="margin-top:22px">All amounts exclude third-party subscriptions,
+      transaction fees and courier charges. Proposal valid for
+      <b data-fill="validity">14 days</b>.</p>
+
+    <div class="split-foot">NAUGHTY BERRY · E-COMMERCE INTEGRATION</div>
+  </div>
+</article>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
