@@ -1,19 +1,21 @@
 /* ============================================================
-   DAYBREAK PROPOSAL SYSTEM — DB-NB-002 · V1
-   Naughty Berry E-Commerce Integration
+   DAYBREAK PROPOSAL SYSTEM — DB-NB-002 · V2
+   Naughty Berry Ecommerce Expansion Options
 
-   NO FEE, TOTAL, RETAINER OR DATE IS TYPED INTO THE HTML.
-   Everything below is bound into the page at runtime, so the
-   narrative pages and the commercial pages cannot disagree.
+   NO FEE, TOTAL, RETAINER, HOUR COUNT OR DATE IS TYPED INTO THE
+   HTML. Everything below is bound into the page at runtime, so
+   the narrative pages and the commercial pages cannot disagree.
+
+   The V1 "Sweet Range" deck is archived inside a <template> in
+   index.html. Content in a <template> is inert, so nothing below
+   touches it.
    ============================================================ */
 
 const proposalData = {
   clientName:   "Naughty Berry",
-  projectName:  "E-Commerce Integration",
-  rangeName:    "sweet range",
-  rangeLong:    "sweets and candy range",
-  reference:    "DB-NB-002 · V1",
-  proposalDate: "8 September 2026",
+  projectName:  "Ecommerce Expansion",
+  reference:    "DB-NB-002 · V2",
+  proposalDate: "9 September 2026",
   proposalValidityDays: 14,
   currency:     "ZAR",
   companyName:  "Daybreak",
@@ -23,44 +25,94 @@ const proposalData = {
 };
 
 /* ---- the single source of every rand in this document ----- */
-/* [key, name, fee, description] */
+/* [key, name, fee, description, short label for the stack bar] */
 const optionLines = {
-  o1: [
-    ["shopify", "Shopify Store Setup", 6000,
-     "Store creation and configuration, branded catalogue, up to 10 products, cart and checkout, The Courier Guy plugin, shipping zones, connection to the existing website, full order-journey testing, training and launch."],
-    ["yoco", "Yoco Payment Integration", 2000,
-     "Yoco merchant account connected and configured as the online payment provider, successful, failed and cancelled payment handling, test transactions, production launch testing."],
-    ["mailchimp", "Mailchimp Email Marketing Integration", 4000,
-     "Audience and consent setup, newsletter signup connected to the website and store, branded newsletter template, welcome email, end-to-end subscriber testing."],
+  a: [
+    ["storefront", "Custom React storefront, cart and checkout", 8000,
+     "Custom React shop page, product cards and detail views, variants, quantity and stock, persistent cart, and the full custom checkout capturing contact, delivery and consent details.",
+     "Storefront"],
+    ["dashboard", "Database and order dashboard", 5000,
+     "Product, variant, price, stock, weight and dimension records, customer, order, payment, shipment and tracking data, product administration, and the protected internal order dashboard.",
+     "Dashboard"],
+    ["courier", "Courier Guy custom integration", 6000,
+     "Secure backend functions for rates, addresses, parcel dimensions, services and pricing, automated shipment creation after payment, shipment IDs, waybills, tracking, cancellation and failure handling, plus the customer-facing courier interface.",
+     "Courier Guy"],
+    ["yoco", "Yoco payment integration", 3000,
+     "Yoco Checkout API connection, secure payment creation, hosted payment redirect, return, cancellation and failure handling, webhook verification, server-side total verification and duplicate-payment protection.",
+     "Yoco"],
+    ["mailchimp", "Mailchimp integration", 4000,
+     "Account configuration, newsletter signup form, subscriber audience, marketing consent, welcome email, one initial branded newsletter template and subscriber-flow testing.",
+     "Mailchimp"],
+    ["launch", "Testing, deployment and training", 2000,
+     "Product, cart, checkout, payment, courier-rate, shipment, waybill and tracking testing on mobile and desktop, duplicate webhook testing, live production test, dashboard training and final deployment.",
+     "Launch"],
   ],
-  o2: [
-    ["storefront", "Custom React Storefront and Shopify Integration", 12000,
-     "Shopify Storefront API configuration, custom React shop, product and cart components, persistent cart, live pricing and stock, checkout hand-off, The Courier Guy plugin and fulfilment workflow, deployment, training and launch."],
-    ["yoco", "Yoco Payment Integration", 2000,
-     "Yoco merchant account connected to Shopify, secure payment configuration, successful, failed and cancelled payment handling, test transactions, production launch testing."],
-    ["mailchimp", "Mailchimp Email Marketing Integration", 4000,
-     "Audience and consent setup, newsletter signup connected across the React website and Shopify, branded newsletter template, welcome email, end-to-end subscriber testing."],
+  b: [
+    ["shopify", "Shopify store and Courier Guy setup", 6000,
+     "Shopify account and store configuration, branded styling matched to Naughty Berry, navigation, catalogue and product pages, variants, stock, cart and checkout, order emails, mobile optimisation, connection to the existing React website, The Courier Guy plugin, zones, services and rates, testing and training.",
+     "Shopify store"],
+    ["yoco", "Yoco payment integration", 2000,
+     "Naughty Berry's Yoco account connected and configured as the payment provider, successful and failed payment handling, test transactions and production payment testing.",
+     "Yoco"],
+    ["mailchimp", "Mailchimp integration", 4000,
+     "Account configuration, newsletter signup connection, subscriber audience, marketing consent, welcome email, one initial branded newsletter template and subscriber testing.",
+     "Mailchimp"],
   ],
 };
 
-const retainers = { o1: 2000, o2: 3500 };
-const timelines = { o1: "2–3 weeks", o2: "3–4 weeks" };
+/* Package price is what Naughty Berry pays. Where it is below the sum
+   of the lines, the difference is shown as a package reduction. */
+const packagePrice = { a: 24000, b: 12000 };
+const retainers    = { a: 3500,  b: 2000  };
+const timelines    = { a: "3–4 weeks", b: "2–3 weeks" };
+
+/* ---- estimated development time --------------------------- */
+/* [workstream, low hours, high hours] */
+const hourLines = {
+  a: [
+    ["Planning and provider setup",       3,  5],
+    ["Database and product management",   6,  9],
+    ["Product catalogue and cart",        8, 12],
+    ["Checkout and delivery interface",   6, 10],
+    ["Yoco integration",                  5,  8],
+    ["Courier Guy API integration",      10, 16],
+    ["Dashboard, waybills and tracking",  8, 12],
+    ["Mailchimp and notifications",       4,  7],
+    ["Security, testing and deployment",  7, 11],
+  ],
+  b: [
+    ["Shopify setup and branding",        7, 11],
+    ["Products and store configuration",  4,  6],
+    ["Existing website connection",       2,  4],
+    ["Yoco integration",                  2,  4],
+    ["Courier Guy plugin and shipping",   3,  6],
+    ["Mailchimp integration",             4,  6],
+    ["Testing, training and launch",      4,  6],
+  ],
+};
+
 const productAllowance = 10;
 const monthlyChangeAllowance = 5;
 
 /* ---- derived ---------------------------------------------- */
-const sum   = (k) => optionLines[k].reduce((t, l) => t + l[2], 0);
-const total = { o1: sum("o1"), o2: sum("o2") };
+const standardValue = {
+  a: optionLines.a.reduce((t, l) => t + l[2], 0),
+  b: optionLines.b.reduce((t, l) => t + l[2], 0),
+};
+const total = { a: packagePrice.a, b: packagePrice.b };
+const saving = { a: standardValue.a - packagePrice.a, b: standardValue.b - packagePrice.b };
+
+const hourRange = (k) => hourLines[k].reduce(
+  (t, l) => [t[0] + l[1], t[1] + l[2]], [0, 0]);
+
 /* comma grouping, per the house convention: R12,000 — not the en-ZA space */
 const money = (n) => "R" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 const yearOne = (k) => total[k] + retainers[k] * 12;
+const dash = (k) => { const [lo, hi] = hourRange(k); return lo + "–" + hi; };
 
 /* ---- text substitution map -------------------------------- */
 const fills = {
   "client-name":      proposalData.clientName,
-  "range":            proposalData.rangeName,
-  "range-upper":      proposalData.rangeName.toUpperCase(),
-  "range-long":       proposalData.rangeLong,
   "project-name":     proposalData.projectName,
   "reference":        proposalData.reference,
   "proposal-date":    proposalData.proposalDate,
@@ -72,26 +124,34 @@ const fills = {
   "product-count":    String(productAllowance),
   "change-count":     String(monthlyChangeAllowance),
 
-  "o1-total":         money(total.o1),
-  "o2-total":         money(total.o2),
-  "o1-retainer":      money(retainers.o1),
-  "o2-retainer":      money(retainers.o2),
-  "o1-retainer-year": money(retainers.o1 * 12),
-  "o2-retainer-year": money(retainers.o2 * 12),
-  "o1-year-one":      money(yearOne("o1")),
-  "o2-year-one":      money(yearOne("o2")),
-  "o1-time":          timelines.o1,
-  "o2-time":          timelines.o2,
-  "delta":            money(total.o2 - total.o1),
-  "delta-retainer":   money(retainers.o2 - retainers.o1),
-
-  "o1-shopify":       money(optionLines.o1[0][2]),
-  "o1-yoco":          money(optionLines.o1[1][2]),
-  "o1-mailchimp":     money(optionLines.o1[2][2]),
-  "o2-storefront":    money(optionLines.o2[0][2]),
-  "o2-yoco":          money(optionLines.o2[1][2]),
-  "o2-mailchimp":     money(optionLines.o2[2][2]),
+  "a-total":          money(total.a),
+  "b-total":          money(total.b),
+  "a-standard":       money(standardValue.a),
+  "b-standard":       money(standardValue.b),
+  "a-saving":         money(saving.a),
+  "b-saving":         money(saving.b),
+  "a-retainer":       money(retainers.a),
+  "b-retainer":       money(retainers.b),
+  "a-retainer-year":  money(retainers.a * 12),
+  "b-retainer-year":  money(retainers.b * 12),
+  "a-year-one":       money(yearOne("a")),
+  "b-year-one":       money(yearOne("b")),
+  "a-time":           timelines.a,
+  "b-time":           timelines.b,
+  "a-hours":          dash("a") + " hours",
+  "b-hours":          dash("b") + " hours",
+  "a-hours-range":    dash("a"),
+  "b-hours-range":    dash("b"),
+  "delta":            money(total.a - total.b),
+  "delta-retainer":   money(retainers.a - retainers.b),
 };
+
+/* every line fee is addressable as, e.g., data-fill="a-courier" */
+Object.keys(optionLines).forEach((k) => {
+  optionLines[k].forEach(([lineKey, , fee]) => {
+    fills[k + "-" + lineKey] = money(fee);
+  });
+});
 
 /* ============================================================
    BINDING
@@ -108,6 +168,7 @@ function renderLedgers(){
     const key = host.getAttribute("data-lines");
     const lines = optionLines[key];
     if (!lines) return;
+
     const rows = lines.map(([, name, fee, desc]) => `
       <div class="cost-row">
         <div class="cr-main">
@@ -116,11 +177,27 @@ function renderLedgers(){
         </div>
         <div class="cr-fig">${money(fee)}</div>
       </div>`).join("");
-    host.innerHTML = rows + `
+
+    const tail = saving[key] > 0
+      ? `
+      <div class="cost-row sub">
+        <div class="cr-main"><b class="cr-name">Standard project value</b></div>
+        <div class="cr-fig">${money(standardValue[key])}</div>
+      </div>
+      <div class="cost-row total">
+        <div class="cr-main">
+          <b class="cr-name">Package price · once off</b>
+          <p class="cr-desc">Includes a ${money(saving[key])} package reduction on the standard value.</p>
+        </div>
+        <div class="cr-fig">${money(total[key])}</div>
+      </div>`
+      : `
       <div class="cost-row total">
         <div class="cr-main"><b class="cr-name">Total once-off investment</b></div>
         <div class="cr-fig">${money(total[key])}</div>
       </div>`;
+
+    host.innerHTML = rows + tail;
   });
 }
 
@@ -129,16 +206,32 @@ function renderStacks(){
     const key = host.getAttribute("data-stack");
     const lines = optionLines[key];
     if (!lines) return;
-    const t = total[key];
+    const t = standardValue[key];
+    /* six narrow brackets need tighter type than three wide ones */
+    host.classList.toggle("dense", lines.length > 4);
     const segs = lines.map(([, , fee]) =>
       `<i class="ti-seg" style="width:${(fee / t * 100).toFixed(2)}%"></i>`).join("");
-    const brackets = lines.map(([, name, fee]) => `
+    const brackets = lines.map(([, name, fee, , short]) => `
       <div class="ti-bracket" style="width:${(fee / t * 100).toFixed(2)}%">
-        <span class="tb-name">${name.split(" and ")[0].split(" Integration")[0]}</span>
+        <span class="tb-name">${short || name}</span>
         <span class="tb-fig">${money(fee)}</span>
       </div>`).join("");
     host.innerHTML =
       `<div class="ti-bar">${segs}</div><div class="ti-brackets">${brackets}</div>`;
+  });
+}
+
+function renderHours(){
+  document.querySelectorAll("[data-hours]").forEach((host) => {
+    const key = host.getAttribute("data-hours");
+    const lines = hourLines[key];
+    if (!lines) return;
+    const rows = lines.map(([name, lo, hi]) =>
+      `<tr><td>${name}</td><td>${lo}–${hi}</td></tr>`).join("");
+    host.innerHTML =
+      `<thead><tr><th scope="col">Workstream</th><th scope="col">Estimated hours</th></tr></thead>` +
+      `<tbody>${rows}` +
+      `<tr class="figure total"><td>Estimated total</td><td>${dash(key)} hours</td></tr></tbody>`;
   });
 }
 
@@ -252,6 +345,7 @@ function wireControls(){
 applyFills();
 renderLedgers();
 renderStacks();
+renderHours();
 numberPages();
 buildSideNav();
 wireControls();
