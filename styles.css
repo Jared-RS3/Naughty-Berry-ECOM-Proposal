@@ -795,7 +795,7 @@ b,strong{font-weight:500}
 .split-light .nb-logo{width:118px}
 
 /* 14 · PRINT ---------------------------------------------------- */
-@page{size:A4;margin:10mm}
+@page{size:A4 portrait;margin:0}
 @media print{
   html,body{background:#fff}
   body{padding-top:0;font-size:10.5pt;line-height:1.55}
@@ -803,13 +803,13 @@ b,strong{font-weight:500}
   .editorial-rock,.phone-shadow{display:none !important}
 
   .proposal-page{
-    display:block;min-height:0;break-after:page;page-break-after:always;
-    padding:0 0 4mm;overflow:visible;
+    display:block;box-sizing:border-box;min-height:297mm;break-after:page;
+    page-break-after:always;padding:12mm 14mm 10mm;overflow:visible;
   }
   .proposal-page:last-of-type{break-after:auto;page-break-after:auto}
-  .cover{min-height:262mm}
-  .page-split{display:block;min-height:0}
-  .split-dark,.split-light{padding:10mm 0}
+  .cover{min-height:297mm}
+  .page-split{display:block;min-height:297mm;padding:0}
+  .split-dark,.split-light{padding:12mm 14mm 10mm}
 
   .page-head{padding-bottom:10mm}
   .page-foot{padding-top:8mm}
@@ -839,6 +839,11 @@ b,strong{font-weight:500}
 
   .nb-lockup,.nb-chip,.nb-swatches{break-inside:avoid;page-break-inside:avoid}
   .nb-word{text-shadow:none}
+
+  /* Terms and signatures need separate sheets so no signer card is clipped. */
+  #page-9{break-after:page;page-break-after:always}
+  #page-9 .signature-status{break-before:page;page-break-before:always;padding-top:12mm}
+  #page-9 .signature-grid{break-inside:avoid;page-break-inside:avoid}
 
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
