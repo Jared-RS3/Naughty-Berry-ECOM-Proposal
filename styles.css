@@ -842,8 +842,12 @@ b,strong{font-weight:500}
 
   /* Terms and signatures need separate sheets so no signer card is clipped. */
   #page-9{break-after:page;page-break-after:always}
-  #page-9 .signature-status{break-before:page;page-break-before:always;padding-top:12mm}
-  #page-9 .signature-grid{break-inside:avoid;page-break-inside:avoid}
+  #page-9 .signature-status{display:none}
+  #page-9 .signature-grid{break-before:page;page-break-before:always;break-inside:avoid;page-break-inside:avoid;padding-top:12mm}
+  #page-9 .signature-card{break-inside:avoid;page-break-inside:avoid;background:#fff;padding:8mm 7mm}
+  #page-9 .signature-card input{min-height:8mm;border-bottom:1px solid #222}
+  #page-9 .signature-canvas{height:32mm;background:#fff;border:1px solid #999;border-bottom:1px solid #222}
+  #page-9 .signature-clear,#page-9 .signature-confirm,#page-9 .signature-note{display:none}
 
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
