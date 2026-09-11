@@ -15,7 +15,8 @@ const proposalData = {
   clientName:   "Naughty Berry",
   projectName:  "Ecommerce Expansion",
   reference:    "DB-NB-002 · V2",
-  proposalDate: "9 September 2026",
+  proposalDate: "11 September 2026",
+  retainerReviewDate: "March 2027",
   proposalValidityDays: 14,
   currency:     "ZAR",
   companyName:  "Daybreak",
@@ -48,22 +49,34 @@ const optionLines = {
      "Launch"],
   ],
   b: [
-    ["shopify", "Shopify store and Courier Guy setup", 6000,
-     "Shopify account and store configuration, branded styling matched to Naughty Berry, navigation, catalogue and product pages, variants, stock, cart and checkout, order emails, mobile optimisation, connection to the existing React website, The Courier Guy plugin, zones, services and rates, testing and training.",
+    ["shopify", "Shopify store setup + custom Naughty Berry styling", 3200,
+     "Configure the Shopify store and customise the theme to closely match Naughty Berry's existing brand and website design.",
      "Shopify store"],
-    ["yoco", "Yoco payment integration", 2000,
-     "Naughty Berry's Yoco account connected and configured as the payment provider, successful and failed payment handling, test transactions and production payment testing.",
+    ["connection", "React website connection + shop subdomain", 800,
+     "Connect the existing React website to Shopify and configure a dedicated shop subdomain such as shop.naughtyberry.co.za.",
+     "Website connection"],
+    ["yoco", "Yoco payment integration", 1200,
+     "Set up and test Yoco as the online payment gateway for secure customer checkout.",
      "Yoco"],
-    ["mailchimp", "Mailchimp integration", 4000,
-     "Account configuration, newsletter signup connection, subscriber audience, marketing consent, welcome email, one initial branded newsletter template and subscriber testing.",
+    ["courier", "Courier Guy Shopify integration", 1200,
+     "Connect The Courier Guy to Shopify for delivery rates, shipment processing and order fulfilment workflows.",
+     "Courier Guy"],
+    ["mailchimp", "Mailchimp setup + branded email integration", 800,
+     "Connect Mailchimp and configure branded customer email flows and marketing integration.",
      "Mailchimp"],
+    ["products", "Initial product setup — up to 10 products", 800,
+     "Add and configure up to 10 products including pricing, images, descriptions and product options.",
+     "Products"],
+    ["launch", "Testing, training + production launch", 1600,
+     "Fully test the store, resolve launch issues, provide client training and publish the ecommerce system live.",
+     "Launch"],
   ],
 };
 
 /* Package price is what Naughty Berry pays. Where it is below the sum
    of the lines, the difference is shown as a package reduction. */
-const packagePrice = { a: 24000, b: 12000 };
-const retainers    = { a: 3500,  b: 2000  };
+const packagePrice = { a: 24000, b: 9600 };
+const retainers    = { a: 3500,  b: 1500 };
 const timelines    = { a: "3–4 weeks", b: "2–3 weeks" };
 
 /* ---- estimated development time --------------------------- */
@@ -116,6 +129,7 @@ const fills = {
   "project-name":     proposalData.projectName,
   "reference":        proposalData.reference,
   "proposal-date":    proposalData.proposalDate,
+  "retainer-review":  proposalData.retainerReviewDate,
   "validity":         proposalData.proposalValidityDays + " days",
   "company":          proposalData.companyName,
   "email":            proposalData.email,
@@ -235,6 +249,102 @@ function renderHours(){
   });
 }
 
+/* Signature records stay visible across tabs on the same device. */
+function initSignatures(){
+  const board = document.querySelector("[data-signature-board]");
+  if (!board) return;
+  const key = "daybreak-db-nb-002-signatures";
+  const channel = "BroadcastChannel" in window ? new BroadcastChannel(key) : null;
+  const today = new Date().toISOString().slice(0, 10);
+  const cards = Array.from(board.querySelectorAll("[data-signature-card]"));
+  const status = document.querySelector("[data-signature-status]");
+
+  function read(){
+    try { return JSON.parse(localStorage.getItem(key) || "null"); }
+    catch { return null; }
+  }
+  function write(record){
+    localStorage.setItem(key, JSON.stringify(record));
+    channel?.postMessage(record);
+  }
+  function setupCanvas(canvas, data){
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.round(rect.width * ratio);
+    canvas.height = Math.round(rect.height * ratio);
+    const context = canvas.getContext("2d");
+    context.scale(ratio, ratio);
+    context.strokeStyle = "#3d2d29";
+    context.lineWidth = 2;
+    context.lineCap = "round";
+    context.lineJoin = "round";
+    if (data) { const image = new Image(); image.onload = () => context.drawImage(image, 0, 0, rect.width, rect.height); image.src = data; }
+    let drawing = false;
+    const point = (event) => { const box = canvas.getBoundingClientRect(); return { x: event.clientX - box.left, y: event.clientY - box.top }; };
+    canvas.addEventListener("pointerdown", (event) => { if (canvas.closest("[data-signature-card]").classList.contains("signature-card-locked")) return; drawing = true; canvas.setPointerCapture(event.pointerId); const p = point(event); context.beginPath(); context.moveTo(p.x, p.y); });
+    canvas.addEventListener("pointermove", (event) => { if (!drawing) return; const p = point(event); context.lineTo(p.x, p.y); context.stroke(); });
+    canvas.addEventListener("pointerup", () => { drawing = false; });
+    canvas.addEventListener("pointercancel", () => { drawing = false; });
+    return () => canvas.toDataURL("image/png");
+  }
+  function collectCard(card, confirmed){
+    return {
+      id: card.dataset.signatureCard,
+      name: card.querySelector("[data-signature-name]").value.trim(),
+      role: card.querySelector("[data-signature-role]")?.value.trim() || "",
+      date: card.querySelector("[data-signature-date]").value,
+      signature: card._signatureData(),
+      confirmed: confirmed || card.classList.contains("signature-card-locked"),
+      confirmedAt: confirmed ? new Date().toISOString() : card.dataset.confirmedAt || ""
+    };
+  }
+  function collectRecord(){
+    return { cards: cards.map((card) => collectCard(card)), updatedAt: new Date().toISOString() };
+  }
+  function updateStatus(){
+    const count = cards.filter((card) => card.classList.contains("signature-card-locked")).length;
+    status.textContent = count ? `${count} of ${cards.length} signatures confirmed` : "Awaiting signatures";
+  }
+  function apply(record){
+    if (!record) return;
+    cards.forEach((card, index) => {
+      const saved = record.cards?.[index];
+      if (!saved) return;
+      card.querySelector("[data-signature-name]").value = saved.name || "";
+      const role = card.querySelector("[data-signature-role]");
+      if (role) role.value = saved.role || "";
+      card.querySelector("[data-signature-date]").value = saved.date || today;
+      card._signatureData = setupCanvas(card.querySelector("[data-signature-canvas]"), saved.signature);
+      card.dataset.confirmedAt = saved.confirmedAt || "";
+      card.classList.toggle("signature-card-locked", Boolean(saved.confirmed));
+    });
+    updateStatus();
+  }
+  cards.forEach((card) => {
+    card.querySelector("[data-signature-date]").value = today;
+    card._signatureData = setupCanvas(card.querySelector("[data-signature-canvas]"));
+    card.querySelector("[data-signature-clear]").addEventListener("click", () => {
+      if (card.classList.contains("signature-card-locked")) return;
+      const canvas = card.querySelector("[data-signature-canvas]");
+      canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    });
+    card.querySelector("[data-signature-confirm]").addEventListener("click", () => {
+      const record = collectCard(card, true);
+      if (!record.name || !record.date) {
+        status.textContent = "Add a name and date before confirming this signature";
+        return;
+      }
+      const saved = read() || { cards: cards.map((item) => collectCard(item)) };
+      saved.cards = cards.map((item) => item === card ? record : collectCard(item));
+      saved.updatedAt = new Date().toISOString();
+      write(saved);
+      apply(saved);
+    });
+  });
+  channel?.addEventListener("message", (event) => apply(event.data));
+  apply(read());
+}
+
 /* ============================================================
    NAVIGATION AND BEHAVIOUR
    ============================================================ */
@@ -346,6 +456,7 @@ applyFills();
 renderLedgers();
 renderStacks();
 renderHours();
+initSignatures();
 numberPages();
 buildSideNav();
 wireControls();
